@@ -1,124 +1,741 @@
-/* Reset & base */
-* { box-sizing: border-box; }
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff8f0;
-  color: #3a3a3a;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
 }
-a { color: #d35400; text-decoration: none; }
-a:hover { text-decoration: underline; }
 
-/* Buttons */
-button {
-  cursor: pointer;
-  border: none;
-  background: #2196F3; /* CTA blue by default */
-  color: white;
-  padding: 0.6rem 1.1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: background-color 0.25s ease;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #333;
+  font-size: 20px;
 }
-button:hover { background: #4CAF50; }
 
-/* Headings & text */
-h1, h2, h3 { margin-top: 0; color: #b03e00; }
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; margin-bottom: 1rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-p { margin-top: 0; margin-bottom: 1rem; }
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-/* Container */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* Navigation */
-nav {
-  background: #f5f5f5; /* use light background for header */
-  color: #3a3a3a;
-  padding: 0.6rem 0;
-  position: sticky;
+/* Navbar */
+header {
+  width: 100%;
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.nav-container { display:flex; justify-content:space-between; align-items:center; gap:12px; }
-.logo { font-weight:700; font-size:1.25rem; letter-spacing:1px; color:#FF5722; user-select:none; }
-#nav-links { list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
-#nav-links li { user-select:none; }
-#nav-links a { color:#333333; font-weight:600; text-transform:uppercase; font-size:0.85rem; padding:0.35rem 0.6rem; border-radius:6px; }
-#nav-links a:hover, #nav-links a.active { background: rgba(255,87,34,0.08); color:#FF5722; }
 
-/* Nav right */
-.nav-right { display:flex; align-items:center; gap:10px; }
-.btn-cta { background:#2196F3; color:white; padding:0.5rem 0.9rem; border-radius:8px; }
-.nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.nav-toggle span { width:25px; height:3px; background:#333; border-radius:2px; }
+header .logo {
+  display: flex;
+  align-items: center; /* logo và chữ canh giữa */
+  gap: 10px;           /* khoảng cách giữa logo và chữ */
+}
+
+header .logo img {
+  width: 50px;
+  height: auto;
+}
+
+header .logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit; /* giữ màu chữ */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* sắp xếp các <li> theo hàng ngang */
+  gap: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer; /* Thêm cursor để rõ ràng clickable */
+  display: inline-block; /* Đảm bảo full clickable area */
+  transition: 0.3s;  /* thêm hiệu ứng mượt khi đổi màu */
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ff5722;
+}
+
+/* giỏ hàng */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon {
+  font-size: 25px;
+  cursor: pointer;
+  color: #929292;
+  transition: 0.3s;
+}
+
+.cart-icon:hover {
+  color: #000000;
+}
+
+/*Đăng nhập*/
+.login-button {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid #ff5722;
+  border-radius: 6px;
+  background: transparent;
+  color: #ff5722;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background: #ff5722;
+  color: #fff;
+}
 
 /* Hero */
 .hero {
   position: relative;
-  height: 420px;
-  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-  display:flex; justify-content:center; align-items:center; color:#fff; text-align:center; padding:0 1rem;
+  width: 100%;
+  height: 100vh; /* full màn hình */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  transition: background-image 1s linear; /* hiệu ứng đổi hình */
 }
-.hero::after { content:""; position:absolute; inset:0; background: rgba(0,0,0,0.45); z-index:0; }
-.hero-content { position:relative; z-index:1; max-width:700px; }
-.hero-content h1 { font-size:3rem; margin-bottom:0.5rem; text-shadow:2px 2px 6px rgba(0,0,0,0.6); }
-.hero-content p { font-size:1.1rem; margin-bottom:1rem; text-shadow:1px 1px 4px rgba(0,0,0,0.5); }
-#hero-book-btn { background:#2196F3; color:white; padding:0.8rem 1.4rem; border-radius:8px; font-size:1rem; }
 
-/* Sections */
-section { padding:2.5rem 0; }
-.section-title { text-align:center; }
-
-/* Combos */
-.combos { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
-.combo-card { background:white; border-radius:10px; box-shadow:0 4px 8px rgba(176,62,0,0.15); padding:1.25rem; transition:transform 0.25s ease; cursor:default; }
-.combo-card:hover { transform:translateY(-6px); }
-
-/* Promotion */
-.promotion { background:#f9e5d3; border-radius:10px; max-width:900px; margin:0 auto; padding:1.5rem; text-align:center; box-shadow:0 4px 8px rgba(176,62,0,0.12); }
-
-/* Gallery */
-.gallery { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
-.gallery img { width:100%; height:140px; object-fit:cover; border-radius:8px; box-shadow:0 2px 6px rgba(176,62,0,0.2); transition:transform 0.25s ease; }
-.gallery img:hover { transform:scale(1.04); }
-
-/* Forms */
-form { max-width:700px; margin:0 auto; background:white; padding:1.6rem; border-radius:10px; box-shadow:0 6px 18px rgba(176,62,0,0.08); }
-label { display:block; margin-bottom:0.4rem; font-weight:600; color:#b03e00; }
-input, select, textarea {
-  width:100%; padding:0.6rem; margin-bottom:1rem; border:1.4px solid #d35400; border-radius:8px; font-size:1rem; font-family:inherit;
+.hero .logo-img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
 }
-input:focus, select:focus, textarea:focus { outline:none; border-color:#e67e22; box-shadow:0 0 0 3px rgba(230,126,34,0.08); }
-textarea { min-height:90px; resize:vertical; }
 
-/* Table grid */
-.table-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:1rem; }
-.table { background:#f5f5f5; border:2px solid #d35400; border-radius:6px; height:48px; display:flex; justify-content:center; align-items:center; font-weight:700; color:#b03e00; cursor:pointer; user-select:none; transition:all 0.18s ease; }
-.table.booked { background:#d35400; color:white; cursor:not-allowed; opacity:0.9; transform:none; }
-.table.selected { background:#e67e22; color:white; transform:translateY(-3px); box-shadow:0 6px 12px rgba(0,0,0,0.12); }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); /* overlay mờ */
+}
 
-/* Checkbox group */
-.checkbox-group { display:flex; flex-wrap:wrap; gap:0.8rem; margin-bottom:1rem; }
-.checkbox-group label { font-weight:normal; color:#3a3a3a; cursor:pointer; }
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
 
-/* Confirmation */
-.confirmation { max-width:700px; margin:1.5rem auto; background:#dff0d8; border:1px solid #3c763d; color:#3c763d; padding:1rem; border-radius:8px; font-weight:600; text-align:center; }
+.hero h1 {
+  font-size: 56px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-/* Contact iframe */
-iframe { width:100%; height:300px; border:none; border-radius:8px; box-shadow:0 6px 18px rgba(176,62,0,0.08); }
+.hero h1 .bbq {
+  background: linear-gradient(45deg, rgb(255, 67, 20), orange, yellow);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px red; /* viền đỏ */
+}
 
-/* Footer */
-footer { background:#FF5722; color:white; padding:1rem 0; margin-top:2rem; }
-.footer-container { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.hero .btn-primary {
+  background: #ff5722;
+  color: #fff;
+}
+
+.hero .btn-primary:hover {
+  background: #5e1600;
+}
+
+.hero .btn-secondary {
+  background: #fff;
+  color: #000000;
+}
+
+.hero .btn-secondary:hover {
+  background: #585858;
+  color: #ffffff;
+}
+
+/* Ưu đãi nổi bật */
+.promotion {
+  padding: 60px 0;
+  background: #ffffff;
+  text-align: center;
+}
+
+.promotion h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.promo-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 380px;
+}
+
+.promo-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  flex: 1;
+  position: relative;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.promo-card h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 10px;
+  color: #d84315;
+}
+
+.promo-card p {
+  font-size: 0.95rem;
+  padding: 0 15px 15px;
+  color: #555;
+}
+
+/* Nút "Dùng ngay" ẩn mặc định */
+.promo-card .btn-use {
+  display: none;
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+a.btn-use {
+  text-decoration: none; /* bỏ gạch chân */
+}
+
+.promo-card .btn-use:hover {
+  background: #e64a19;
+}
+
+/* Khi hover vào card đó thì nó thành big */
+.promo-card:hover {
+  flex: 2; /* mở rộng */
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Các card còn lại nhỏ lại */
+.promo-row:hover .promo-card:not(:hover) {
+  flex: 0.8;
+  opacity: 0.8;
+}
+
+/* Khi là card chính thì hiện nút "Dùng ngay" */
+.promo-card:hover .btn-use {
+  display: inline-block;
+}
+
+/*Giới thiệu*/
+.about {
+  padding: 60px 20px;
+  background: #fdf5f4;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff5722;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.about-item {
+  display: flex;
+  gap: 20px;
+  border: 2px solid #ddd;
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.about-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.about-img img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.about-text h3 {
+  margin-bottom: 15px;
+}
+
+.about-text ul {
+  list-style: none;
+  text-align: left;
+}
+
+.about-text ul li {
+  margin-bottom: 8px;
+  justify-content: flex-start;
+}
+
+.fa-star {
+  color: #FFC107;
+  margin-right: 6px;
+}
+
+
+
+/*Combo đề cử*/
+.combo-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.combo-section h2 {
+  font-size: 2.2em;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
+}
+
+.combo-list {
+  display: flex;
+  justify-content: center; /* Căn giữa hàng */
+  align-items: stretch; /* Card cao bằng nhau */
+  gap: 30px;
+  flex-wrap: nowrap; /* Buộc 4 card nằm cùng 1 hàng, không wrap */
+  overflow-x: auto; /* Nếu tổng rộng > container, scroll ngang (tùy chọn) */
+  padding: 0 10px; /* Padding nhẹ để tránh sát lề */
+}
+
+.combo-card {
+  background: #fdfdfd;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 0 0 280px; /* Không co giãn, width cố định 280px (giảm từ 300px để fit tốt hơn) */
+  /* Hoặc dùng: flex-basis: calc(25% - 22.5px); để chia đều 4 phần trừ gap */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.combo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.combo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.combo-card h3 {
+  font-size: 1.3em;
+  margin: 15px;
+  color: #ff5722;
+}
+
+.combo-card span {
+  color: #ff5722;
+}
+
+.combo-card p {
+  font-size: 0.95em;
+  color: #555;
+  margin: 0 15px 20px;
+  line-height: 1.5;
+}
+
+.combo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.price {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-order {
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-order:hover {
+  background: #6c2009;
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  padding: 50px 20px 20px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ff5722;
+}
+
+.footer-col p,
+.footer-col ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ff5722;
+}
+
+.social-links a {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff5722;
+}
+
+.footer-col form {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-col input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.footer-col button {
+  padding: 8px 16px;
+  border: none;
+  background: #ff5722;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.footer-col button:hover {
+  background: #e64a19;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+/* Container chung (nếu chưa có, dùng cho các section) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Liên hệ */
+.contact {
+  padding: 60px 20px;
+  background: #fdf5f4; /* Xen kẽ với about để đa dạng */
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff5722;
+}
+
+.contact p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 50px;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.contact-info .info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.contact-info .info-item i {
+  font-size: 1.5rem;
+  color: #ff5722;
+  width: 30px;
+}
+
+.contact-info .info-item h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.contact-info .info-item p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.contact-form {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff5722;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  padding: 12px 24px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Bản đồ */
+.map-container {
+  margin-top: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: none;
+}
 
 /* Responsive */
-@media (max-width: 880px) {
-  .table-grid { grid-template-columns:repeat(3,1fr); }
-  #nav-links { display:none; position:absolute; top:64px; right:12px; background:#fff; padding:1rem; box-shadow:0 6px 24px rgba(0,0,0,0.12); border-radius:8px; flex-direction:column; gap:0.5rem; }
-  .nav-toggle { display:flex; }
-  .hero { height:360px; }
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .about-content,
+  .combo-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .combo-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 20px;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .combo-section h2,
+  .about h2,
+  .contact h2 {
+    font-size: 1.5rem;
+  }
 }

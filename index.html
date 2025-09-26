@@ -2,261 +2,241 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BBQ Heaven - Restaurant Booking</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBQ Master</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- FontAwesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
-  
-  <nav id="navbar">
-    <div class="nav-container container">
-      <div class="logo" tabindex="0">BBQ Heaven</div>
-
-      <ul id="nav-links">
-        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-        <li><a href="#" class="nav-link" data-page="menu">Menu</a></li>
-        <li><a href="#" class="nav-link" data-page="table-booking">Đặt bàn</a></li>
-        <li><a href="#" class="nav-link" data-page="event-booking">Đặt tiệc</a></li>
-        <li><a href="#" class="nav-link" data-page="contact">Liên hệ</a></li>
-        <li><a href="#" class="nav-link" data-page="login">Đăng nhập</a></li>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+    <a href="index.html" class="logo-link">
+    <img src="Images/Logo.jpg" alt="Logo">
+    <span>BBQ Master</span>
+    </a>
+  </div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Trang chủ</a></li>
+        <li><a href="#">Thực đơn</a></li>
+        <li><a href="#">Đặt bàn</a></li>
+        <li><a href="#">Đặt tiệc</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
       </ul>
+    </nav>
+    <div class="header-actions">
+      <i class="fa-solid fa-cart-shopping cart-icon"></i>
+      <button class="login-button"><i class="fa-solid fa-user"></i> Đăng nhập</button>
+  </div>
 
-      <div class="nav-right">
-        <button id="btn-cta" class="btn-cta">Đặt bàn</button>
-        <div class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" tabindex="0">
-          <span></span>
-          <span></span>
-          <span></span>
+  </header>
+
+  <!-- Hero -->
+<section class="hero reveal">
+  <div class="hero-content">
+    <!--<img src="Images/Logo.jpg" alt="Logo" class="logo-img">-->
+    <h1><span class="bbq">BBQ Master</span></h1>
+    <p>Trải nghiệm BBQ ngoài trời tuyệt vời nhất</p>
+    <button class="btn btn-primary">Đặt bàn ngay</button>
+    <button class="btn btn-secondary">Xem thực đơn</button>
+  </div>
+</section>
+
+<!-- Ưu đãi nổi bật -->
+<section class="promotion reveal">
+  <div class="container">
+    <h2>Ưu đãi nổi bật</h2>
+    <div class="promo-row">
+
+      <!-- Deal 1 -->
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Happy Hour">
+        <h3>Happy Hour</h3>
+        <p>Giảm 20% từ 14h–17h mỗi ngày</p>
+        <a href="promotion-detail.html?id=2" class="btn-use">Xem chi tiết</a>
+      </div>
+
+      <!-- Deal 2 -->
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Combo Cặp đôi">
+        <h3>Combo Cặp Đôi - Giảm 30%</h3>
+        <p>Không gian lãng mạn + menu đặc biệt cho 2 người</p>
+        <a href="promotion-detail.html?id=2" class="btn-use">Xem chi tiết</a>
+      </div>
+
+      <!-- Deal 3 -->
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Family Combo">
+        <h3>Combo Gia Đình</h3>
+        <p>Giảm 15% cuối tuần</p>
+        <a href="promotion-detail.html?id=2" class="btn-use">Xem chi tiết</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Giới thiệu -->
+<section class="about reveal">
+  <div class="container">
+    <h2>Chào mừng đến với BBQ Master</h2>
+    <p>
+      BBQ Master tự hào mang đến cho bạn trải nghiệm ẩm thực nướng đậm chất BBQ.
+      Không chỉ là món ăn, chúng tôi tạo ra không gian thoải mái và ấm cúng để bạn
+      tận hưởng cùng gia đình và bạn bè.
+    </p>
+
+    <div class="about-content">
+      <div class="about-item">
+        <div class="about-img">
+          <img src="https://20sfvn.com/wp-content/uploads/2022/09/thiet-ke-nha-hang-lau-nuong.jpeg" alt="Không gian tầng 1">
+        </div>
+        <div class="about-text">
+          <h3>Tầng 1 - Khu thường</h3>
+          <ul>
+            <li><i class="fa-regular fa-star"></i> Không gian gần gũi</li>
+            <li><i class="fa-regular fa-star"></i> Thoải mái, thân mật</li>
+            <li><i class="fa-regular fa-star"></i> Thích hợp cho gia đình, bạn bè</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-item reverse">
+        <div class="about-img">
+          <img src="https://20sfvn.com/wp-content/uploads/2022/09/thiet-ke-nha-hang-lau-nuong.jpeg" alt="Không gian VIP">
+        </div>
+        <div class="about-text">
+          <h3>Tầng 2 - Khu VIP</h3>
+          <ul>
+            <li><i class="fa-regular fa-star"></i> Riêng tư, yên tĩnh</li>
+            <li><i class="fa-regular fa-star"></i> Phù hợp tiếp khách</li>
+            <li><i class="fa-regular fa-star"></i> Không gian sang trọng</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-item">
+        <div class="about-img">
+          <img src="https://20sfvn.com/wp-content/uploads/2022/09/thiet-ke-nha-hang-lau-nuong.jpeg" alt="Sân vườn BBQ">
+        </div>
+        <div class="about-text">
+          <h3>Sân vườn ngoài trời</h3>
+          <ul>
+            <li><i class="fa-regular fa-star"></i> Thoáng mát, nhiều cây xanh</li>
+            <li><i class="fa-regular fa-star"></i> Không khí lãng mạn</li>
+            <li><i class="fa-regular fa-star"></i> Thích hợp tiệc ngoài trời</li>
+          </ul>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main>
-    <!-- Home Page -->
-    <section id="home" class="page-section">
-      <div class="hero" role="banner" aria-label="BBQ restaurant hero banner">
-        <div class="hero-content">
-          <h1>Welcome to BBQ Heaven</h1>
-          <p>Experience the best BBQ, hotpot, VIP rooms, and a beautiful garden across 3 floors.</p>
-          <button id="hero-book-btn" aria-label="Book a table now">Book Now</button>
-        </div>
+
+
+<!-- Combo Đề cử -->
+<section class="combo-section reveal">
+  <h2>Combo Đề Cử</h2>
+  <div class="combo-list">
+
+    <div class="combo-card">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088" alt="Combo Gia Đình">
+      <h3>Combo FA</h3>
+      <p>Phù hợp cho 4-6 người, gồm nhiều món nướng và lẩu.</p>
+      <div class="combo-footer">
+        <span class="price">899.000đ</span>
+        <button class="btn-order">Đặt ngay</button>
       </div>
-
-      <section class="about" aria-labelledby="about-title">
-        <h2 id="about-title">About BBQ Heaven</h2>
-        <p>BBQ Heaven offers a unique dining experience with authentic BBQ and hotpot dishes, VIP rooms for private parties, and a relaxing garden space. Enjoy your meal on any of our 3 floors or outside in the garden.</p>
-      </section>
-
-      <section aria-labelledby="combos-title">
-        <h2 id="combos-title" class="section-title">Featured Combos</h2>
-        <div class="combos" role="list">
-          <article class="combo-card" role="listitem" tabindex="0" aria-label="2 People Combo, Perfect for couples, price 29 dollars 99 cents">
-            <h3>2 People Combo</h3>
-            <p>Perfect for couples</p>
-            <p class="combo-price">$29.99</p>
-          </article>
-          <article class="combo-card" role="listitem" tabindex="0" aria-label="4 People Combo, Family or friends, price 54 dollars 99 cents">
-            <h3>4 People Combo</h3>
-            <p>Family or friends</p>
-            <p class="combo-price">$54.99</p>
-          </article>
-          <article class="combo-card" role="listitem" tabindex="0" aria-label="10 People Combo, Big group feast, price 129 dollars 99 cents">
-            <h3>10 People Combo</h3>
-            <p>Big group feast</p>
-            <p class="combo-price">$129.99</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="promotion" aria-labelledby="promo-title">
-        <h2 id="promo-title">Promotion</h2>
-        <p><strong>20% off Seafood Combo</strong> - Enjoy fresh seafood with a discount!</p>
-      </section>
-
-      <section aria-labelledby="gallery-title">
-        <h2 id="gallery-title" class="section-title">Our Spaces</h2>
-        <div class="gallery" role="list">
-          <figure role="listitem">
-            <img src="https://images.unsplash.com/photo-1555992336-03a23c4a1f0a?auto=format&fit=crop&w=800&q=80" alt="VIP Room" />
-            <figcaption class="gallery-caption">VIP Room</figcaption>
-          </figure>
-          <figure role="listitem">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Floor 1" />
-            <figcaption class="gallery-caption">Floor 1</figcaption>
-          </figure>
-          <figure role="listitem">
-            <img src="https://images.unsplash.com/photo-1541544181933-3a1a7a0a3f3a?auto=format&fit=crop&w=800&q=80" alt="Floor 2" />
-            <figcaption class="gallery-caption">Floor 2</figcaption>
-          </figure>
-          <figure role="listitem">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Floor 3" />
-            <figcaption class="gallery-caption">Floor 3</figcaption>
-          </figure>
-          <figure role="listitem">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Garden" />
-            <figcaption class="gallery-caption">Garden</figcaption>
-          </figure>
-        </div>
-      </section>
-    </section>
-
-    <!-- Menu Page -->
-    <section id="menu" class="page-section" hidden>
-      <div class="container">
-        <h2>Menu</h2>
-        <p>Our delicious BBQ and hotpot dishes coming soon!</p>
-      </div>
-    </section>
-
-    <!-- Table Booking Page -->
-    <section id="table-booking" class="page-section" hidden>
-      <div class="container">
-        <h2>Đặt bàn</h2>
-        <form id="table-booking-form" aria-label="Table booking form">
-          <label for="tb-guests">Số lượng khách</label>
-          <input type="number" id="tb-guests" name="tb-guests" min="1" max="50" value="4" required />
-
-          <label for="tb-date">Ngày</label>
-          <input type="date" id="tb-date" name="tb-date" required />
-
-          <label for="tb-time">Giờ</label>
-          <select id="tb-time" name="tb-time" required>
-            <option value="">Chọn giờ</option>
-            <option>17:00</option>
-            <option>17:30</option>
-            <option>18:00</option>
-            <option>18:30</option>
-            <option>19:00</option>
-            <option>19:30</option>
-            <option>20:00</option>
-            <option>20:30</option>
-            <option>21:00</option>
-            <option>21:30</option>
-            <option>22:00</option>
-          </select>
-
-          <label for="tb-space">Không gian</label>
-          <select id="tb-space" name="tb-space" required>
-            <option value="floor1">Lầu 1</option>
-            <option value="floor2">Lầu 2</option>
-            <option value="floor3">Lầu 3</option>
-            <option value="garden">Sân vườn</option>
-            <option value="vip">Phòng VIP</option>
-          </select>
-
-          <label>Chọn bàn (click để chọn)</label>
-          <div id="table-grid" class="table-grid" role="grid" aria-label="Table selection grid">
-            <!-- tables will be injected by JS -->
-          </div>
-
-          <label>Yêu cầu khác</label>
-          <textarea id="tb-note" placeholder="Ví dụ: Nướng sẵn, trang trí sinh nhật..." ></textarea>
-
-          <div style="display:flex; gap:10px; align-items:center;">
-            <button type="submit">Xác nhận đặt bàn</button>
-            <div id="selected-summary" style="font-weight:600; color:#b03e00;"></div>
-          </div>
-        </form>
-
-        <div id="booking-confirmation" class="confirmation" hidden role="status"></div>
-      </div>
-    </section>
-
-    <!-- Event Booking Page -->
-    <section id="event-booking" class="page-section" hidden>
-      <div class="container">
-        <h2>Đặt tiệc</h2>
-        <form id="event-booking-form" aria-label="Event booking form">
-          <label for="ev-guests">Số khách (10+)</label>
-          <input type="number" id="ev-guests" name="ev-guests" min="10" max="300" value="20" required />
-
-          <label for="ev-date">Ngày</label>
-          <input type="date" id="ev-date" name="ev-date" required />
-
-          <label for="ev-time">Giờ</label>
-          <select id="ev-time" name="ev-time" required>
-            <option value="">Chọn giờ</option>
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-          </select>
-
-          <label for="ev-space">Không gian</label>
-          <select id="ev-space" name="ev-space" required>
-            <option value="sanh">Sảnh tiệc</option>
-            <option value="floor1">Lầu 1</option>
-            <option value="floor2">Lầu 2</option>
-            <option value="garden">Sân vườn</option>
-            <option value="vip">Phòng VIP</option>
-          </select>
-
-          <label for="ev-package">Gói tiệc</label>
-          <select id="ev-package" name="ev-package" required>
-            <option value="setA">Set A - 10 món</option>
-            <option value="setB">Set B - 14 món</option>
-            <option value="custom">Tùy chỉnh</option>
-          </select>
-
-          <label>Yêu cầu thêm</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="extra" value="decoration"> Trang trí</label>
-            <label><input type="checkbox" name="extra" value="karaoke"> Karaoke</label>
-            <label><input type="checkbox" name="extra" value="cake"> Bánh kem</label>
-            <label><input type="checkbox" name="extra" value="mc"> MC</label>
-          </div>
-
-          <label>Ghi chú</label>
-          <textarea id="ev-note" placeholder="Yêu cầu khác..."></textarea>
-
-          <div style="display:flex; gap:10px; align-items:center;">
-            <button type="submit">Gửi yêu cầu đặt tiệc</button>
-            <div id="event-summary" style="font-weight:600; color:#b03e00;"></div>
-          </div>
-        </form>
-
-        <div id="event-confirmation" class="confirmation" hidden role="status"></div>
-      </div>
-    </section>
-
-    <!-- Contact Page -->
-    <section id="contact" class="page-section" hidden>
-      <div class="container">
-        <h2>Liên hệ</h2>
-        <div class="contact-info">
-          <p>Địa chỉ: 123 Đường BBQ, Quận Ăn Uống</p>
-          <p>Hotline: 0909 123 456</p>
-          <p>Email: info@bbqheaven.example</p>
-        </div>
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!2m..." aria-hidden="false"></iframe>
-      </div>
-    </section>
-
-    <!-- Login Page (simple placeholder) -->
-    <section id="login" class="page-section" hidden>
-      <div class="container">
-        <h2>Đăng nhập</h2>
-        <form id="login-form" aria-label="Login form">
-          <label for="li-email">Email</label>
-          <input type="email" id="li-email" required />
-
-          <label for="li-password">Mật khẩu</label>
-          <input type="password" id="li-password" required />
-
-          <button type="submit">Đăng nhập</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-container">
-      <div>© BBQ Heaven</div>
-      <div>3 floors • Garden • VIP rooms</div>
     </div>
-  </footer>
+
+    <div class="combo-card">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088" alt="Combo Gia Đình">
+      <h3>Combo Gia Đình</h3>
+      <p>Phù hợp cho 4-6 người, gồm nhiều món nướng và lẩu.</p>
+      <div class="combo-footer">
+        <span class="price">899.000đ</span>
+        <button class="btn-order">Đặt ngay</button>
+      </div>
+    </div>
+
+    <div class="combo-card">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088" alt="Combo nhóm bạn">
+      <h3>Combo Bạn Bè</h3>
+      <p>Phù hợp cho 2-4 người, nhiều món nướng hấp dẫn.</p>
+      <div class="combo-footer">
+        <span class="price">499.000đ</span>
+        <button class="btn-order">Đặt ngay</button>
+      </div>
+    </div>
+
+    <div class="combo-card">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088" alt="Combo Cặp Đôi">
+      <h3>Combo Cặp Đôi</h3>
+      <p>Thực đơn lãng mạn dành cho 2 người.</p>
+      <div class="combo-footer">
+        <span class="price">299.000đ</span>
+        <button class="btn-order">Đặt ngay</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Cột 1: Thông tin liên hệ -->
+    <div class="footer-col">
+      <h3>Liên hệ</h3>
+      <p><i class="fa-solid fa-location-dot"></i> 123 Đường Nguyễn Huệ, Quận 1, TP.HCM</p>
+      <p><i class="fa-solid fa-phone"></i> 0123 456 789</p>
+      <p><i class="fa-solid fa-envelope"></i> contact@bbqmaster.vn</p>
+    </div>
+
+    <!-- Cột 2: Liên kết nhanh -->
+    <div class="footer-col">
+      <h3>Liên kết nhanh</h3>
+      <ul>
+        <li><a href="#" class="active">Trang chủ</a></li>
+        <li><a href="#">Thực đơn</a></li>
+        <li><a href="#">Đặt bàn</a></li>
+        <li><a href="#">Đặt tiệc</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 3: Mạng xã hội -->
+    <div class="footer-col">
+      <h3>Kết nối</h3>
+      <div class="social-links">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Cột 4: Newsletter -->
+    <div class="footer-col">
+      <h3>Nhận khuyến mãi</h3>
+      <p>Đăng ký email để nhận ưu đãi mới nhất</p>
+      <form>
+        <input type="email" placeholder="Nhập email của bạn">
+        <button type="submit">Đăng ký</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bản quyền -->
+  <div class="footer-bottom">
+    <p>© 2025 BBQ Master. All rights reserved.</p>
+  </div>
+</footer>
+
 
   <script src="script.js"></script>
 </body>
